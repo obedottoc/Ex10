@@ -1,3 +1,8 @@
+/**
+ * Created by Akhshy Ganesh 
+ * Program to run a java based Calculator 
+ * Gmail.ID akhshyganeshb@gmail.com
+ */
 package Calculator;
 
 import java.awt.*;
@@ -18,6 +23,7 @@ public class MyCalc extends Frame implements WindowListener,ActionListener {
 	static final int OP_SUB=2;
 	static final int OP_MULT=3;
 	static final int OP_DIV=4;
+	static final int OP_CLR=5;
 	public MyCalc()
 	{
 		this.addWindowListener(this);
@@ -213,6 +219,13 @@ public class MyCalc extends Frame implements WindowListener,ActionListener {
 			display.setText(nums);
 			operator=OP_DIV;		
 		}
+		else if(e.getSource()==b_clr)
+		{
+			op1=Double.parseDouble(nums);
+			nums="0";
+			display.setText(nums);
+			operator=OP_CLR;		
+		}
 		else if(e.getSource()==b_equ)
 		{
 			switch(operator)
@@ -237,6 +250,11 @@ public class MyCalc extends Frame implements WindowListener,ActionListener {
 				nums=" "+(op1/op2);
 				display.setText(nums);
 				break;
+			case OP_CLR:
+				op2=Double.parseDouble(nums);
+				nums=" "+(0);
+				display.setText(nums);
+				break;	
 			
 			}
 		}
