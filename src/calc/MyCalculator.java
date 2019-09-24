@@ -183,6 +183,11 @@ public class MyCalculator extends Frame implements WindowListener, ActionListene
 			nums=nums+"9";
 			display.setText(nums);
 		}
+		else if(e.getSource()==b_bs)
+		{
+			nums=nums.substring(0, nums.length()-1);
+			display.setText(nums);
+		}
 		else if(e.getSource()==b_add)
 		{
 			op1=Double.parseDouble(nums);
