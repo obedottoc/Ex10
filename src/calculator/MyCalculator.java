@@ -10,9 +10,11 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class MyCalculator extends Frame implements WindowListener,ActionListener {
-         TextField display;
+        
+		TextField display;
          Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9;
-         Button b_add,b_sub,b_eq,b_div,b_multiply;
+         Button b_add,b_sub,b_eq,b_multiply,b_div;
+         Button b_sin;
          Panel p;
          String nums;
          Double op1,op2;
@@ -43,7 +45,7 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		p.add(b_0);
 		 
 		b_1=new Button("1");
-		b_0.addActionListener(this);
+		b_1.addActionListener(this);
 		p.add(b_1);
 		
 		b_2=new Button("2");
@@ -95,7 +97,12 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		p.add(b_div);
 		
 		b_multiply=new Button("*");
+		b_multiply.addActionListener(this);
 		p.add(b_multiply);
+		
+		b_sin=new Button ("sin");
+		b_sin.addActionListener(this);
+		p.add(b_sin);
 		
 	}
 	
@@ -149,6 +156,7 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -158,11 +166,11 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		{
 		  nums=nums+"0";
 		  display.setText(nums);
-		}else if(e.getSource()==b_1)
-		  	
+		}
+		 else if(e.getSource()==b_1)
 		{
-			nums=nums+"1";
-			display.setText(nums);
+			 nums=nums+"1";
+			 display.setText(nums);
 		}
 		 else if(e.getSource()==b_2)
 		 {
@@ -214,6 +222,27 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 			 operator=OP_ADD;
              
 		 }
+		 else if (e.getSource()==b_sub)
+			{
+			 op1=Double.parseDouble(nums);
+		    nums="0";
+		    display.setText(nums);
+		    operator=OP_SUB;
+			}
+		 else if(e.getSource()==b_multiply)
+		 {
+			 op1=Double.parseDouble(nums);
+		     nums="0";
+		     display.setText(nums);
+		     operator=OP_MULTIPLY;
+		 }
+		 else if(e.getSource()==b_div)
+		 {
+			 op1=Double.parseDouble(nums);
+		     nums="0";
+		     display.setText(nums);
+		     operator=OP_DIV;
+		    }
 		
 		 else if (e.getSource()==b_eq)
 		 {
@@ -242,31 +271,14 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 			 
 			 }
 		 }
-			 else if (e.getSource()==b_sub)
-				{
+			 
+	
+			 else if(e.getSource()==b_sin) 
+		{
 				 op1=Double.parseDouble(nums);
-			    nums="0";
-			    display.setText(nums);
-			    operator=OP_SUB;
-				}
-			 else if(e.getSource()==b_multiply)
-			 {
-				 op1=Double.parseDouble(nums);
-			     nums="0";
-			     display.setText(nums);
-			     operator=OP_MULTIPLY;
-			 }
-			 else if(e.getSource()==b_div)
-			 {
-				 op1=Double.parseDouble(nums);
-			     nums="0";
-			     display.setText(nums);
-			     operator=OP_DIV;
-			
-	}
-
-		 
+				 nums=""+Math.sin(op1*Math.PI/180);
+				 display.setText(nums);
+		}
 	}
 }
-	
 
