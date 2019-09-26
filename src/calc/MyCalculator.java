@@ -1,3 +1,7 @@
+/**
+ * To create decimal and scientific calculator
+ * @author harsha vardhan reddy
+ */
 package calc;
 
 import java.awt.*;
