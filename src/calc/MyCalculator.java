@@ -1,3 +1,7 @@
+/*created by kaarthikeyan
+ * email:gk81299@gmail.com
+ * 
+ */
 package calc;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +14,7 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 	TextField display;
 	Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9,b_00;
 	Button b_add,b_sub,b_equals,b_div,b_mod,b_clr,b_multi,b_back,b_point;
+	Button b_sin;
 	Panel p;
 	String nums;
 	Double op1,op2;
@@ -19,6 +24,7 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 	static final int OP_DIV=3;
 	static final int OP_MOD=5;
 	static final int OP_MULTI=4;
+	static final int OP_sin=5;
 	public MyCalculator()
 	{
 	this.addWindowListener(this);	
@@ -77,6 +83,7 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 	b_00.addActionListener(this);
 	p.add(b_00);
 	
+	
 	b_back=new Button("Delete");
 	b_back.addActionListener(this);
 	p.add(b_back);
@@ -118,6 +125,11 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 	b_equals=new Button("=");
 	b_equals.addActionListener(this);
 	p.add(b_equals);
+	
+	b_sin=new Button("sin");
+	b_sin.addActionListener(this);
+	p.add(b_sin);
+	
 	
 	}
 
@@ -228,6 +240,11 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 			nums=nums+0+0;
 			display.setText(nums);
 		}
+			
+		else if(e.getSource()==b_back) {
+		nums=nums.substring(0,nums.length()-1);
+		display.setText(nums);
+		}
 		else if(e.getSource()==b_add) {
 			op1=Double.parseDouble(nums);
 			nums=" ";
@@ -280,10 +297,21 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 				nums=""+(op1%100);
 				display.setText(nums);
 				break;
+			}}
+			else if(e.getSource()==b_sin) 
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.sin(op1*180/Math.PI);
+				display.setText(nums);
+			}
+			else if(e.getSource()==b_clr)
+			{
+			nums="";
+			display.setText(nums);	
 			}
 		}
 	}
-}
+
 			
 			
 
