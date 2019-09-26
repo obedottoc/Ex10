@@ -9,14 +9,13 @@ import java.awt.event.WindowListener;
 public class MyCalculator extends Frame implements WindowListener,ActionListener{
 	TextField display;
 	Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9;
-	Button b_add,b_sub,b_mul,b_div,b_eq;
+	Button b_add,b_sub,b_mul,b_div,b_eq,b_sin,b_cos,b_c;
 	Panel p;
 	String nums;
 	Double op1,op2;
 	int operator;
 	static final int OP_ADD=1;
 	static final int OP_SUB=2;
-	
 	public MyCalculator()
 	{
 		this.addWindowListener(this);
@@ -93,6 +92,18 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		b_mul=new Button("*");
 		b_mul.addActionListener(this);
 		p.add(b_mul);
+		
+		b_sin=new Button("sin");
+		b_sin.addActionListener(this);
+		p.add(b_sin);
+		
+		b_cos=new Button("cos");
+		b_cos.addActionListener(this);
+		p.add(b_cos);
+		
+		b_c=new Button("clear");
+		b_c.addActionListener(this);
+		p.add(b_c);
 	}
 		
 	
@@ -229,6 +240,18 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 					display.setText(nums);
 					break;
 				}
+			}else if(e.getSource()==b_sin)
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.sin(op1*Math.PI/180);
+				display.setText(nums);
+				
+			}else if(e.getSource()==b_cos)
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.cos(op1*Math.PI/180);
+				display.setText(nums);
+				
 			}
 			
 			
