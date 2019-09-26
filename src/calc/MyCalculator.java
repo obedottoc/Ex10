@@ -1,3 +1,8 @@
+/****
+ * to create a calculator 
+ * @author vijaykumarakaranam
+ * vijaykumarakaranam100@gmail.com
+ */
 package calc;
 
 import java.awt.*;
@@ -185,8 +190,7 @@ public void actionPerformed(ActionEvent e) {
 		display.setText(nums);
 	}else if(e.getSource()==b_2)
 			{	
-		nums=nums+"2";
-		display.setText(nums);
+S		display.setText(nums);
 	}else if(e.getSource()==b_3)
 	{
 		nums=nums+"3";
