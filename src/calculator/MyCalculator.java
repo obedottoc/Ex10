@@ -14,7 +14,7 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		TextField display;
          Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9;
          Button b_add,b_sub,b_eq,b_multiply,b_div;
-         Button b_sin;
+         Button b_sin,b_cos,b_tan;
          Panel p;
          String nums;
          Double op1,op2;
@@ -103,6 +103,14 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		b_sin=new Button ("sin");
 		b_sin.addActionListener(this);
 		p.add(b_sin);
+		
+		b_cos=new Button ("cos");
+		b_cos.addActionListener(this);
+		p.add(b_cos);
+		
+		b_tan=new Button ("tan");
+		b_tan.addActionListener(this);
+		p.add(b_tan);
 		
 	}
 	
@@ -269,7 +277,7 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 				   display.setText(nums);
 				   break;
 			 
-			 }
+		}
 		 }
 			 
 	
@@ -279,6 +287,18 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 				 nums=""+Math.sin(op1*Math.PI/180);
 				 display.setText(nums);
 		}
+			 else if(e.getSource()==b_cos) 
+				{
+						 op1=Double.parseDouble(nums);
+						 nums=""+Math.cos(op1*Math.PI/180);
+						 display.setText(nums);
+				}
+			 else if(e.getSource()==b_tan) 
+				{
+						 op1=Double.parseDouble(nums);
+						 nums=""+Math.tan(op1*Math.PI/180);
+						 display.setText(nums);
+				}
 	}
 }
 
