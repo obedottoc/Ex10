@@ -19,7 +19,7 @@ Panel p;
 String nums;
 double op1,op2;
 int i,op;
-static final int ADD=1,SUB=1,MUL=1,DIV=1,CLEAR=1;
+static final int ADD=1,SUB=2,MUL=3,DIV=4;
 public mycalculator()
 	{
 		nums="0";
@@ -84,7 +84,7 @@ public mycalculator()
 		sin.addActionListener(this);
 		p.add(sin);
 		cos=new Button("cos");
-		sin.addActionListener(this);
+		cos.addActionListener(this);
 		p.add(cos);
 		tan=new Button("tan");
 		tan.addActionListener(this);
@@ -289,28 +289,23 @@ public mycalculator()
 			}
 			else if(e.getSource()==cos){
 				op1=Double.parseDouble(nums);
-					nums=""+Math.sin(op1*Math.PI/180);
+					nums=""+Math.cos(op1*Math.PI/180);
 				display.setText(nums);
 				
 			}
 			else if(e.getSource()==tan){
 				op1=Double.parseDouble(nums);
-					nums=""+Math.sin(op1*Math.PI/180);
+					nums=""+Math.tan(op1*Math.PI/180);
 				display.setText(nums);
 				
 			}
-			/*else if (e.getSource()==back) {
-				i=op;
-				
-				for(i=0;i<10;i--)
-				{
-					nums=op				
-				}
-			}*/
-		
+			else if (e.getSource()==back) {
+				nums=nums;
+				nums=nums.substring(0,nums.length()-1 );
+				display.setText(nums);
 			
 		}
-		
+	}
 		
 	}
 
