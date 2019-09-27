@@ -138,7 +138,7 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
             mc=new MyCalculator();
             mc.setTitle("Calculator");
             mc.setSize(450, 400);
-            mc.setBackground(Color.green);
+            mc.setBackground(Color.orange);
            
            
             mc.setVisible(true);
