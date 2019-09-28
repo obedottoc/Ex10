@@ -1,3 +1,10 @@
+/**
+ * Developed by
+ * D. Sarathi Raj
+ * 212217105054
+ * Saveetha Engineering College
+ * sarathiraj852000@gmail.com
+ */
 package calc;
 
 import java.awt.*;
