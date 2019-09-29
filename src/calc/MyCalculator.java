@@ -10,7 +10,6 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 	TextField display;
 	Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9;
 	Button b_add,b_sub,b_eq,b_div,b_mul,b_per;
-	
 	Panel p;
 	String nums;
 	double op1,op2;
