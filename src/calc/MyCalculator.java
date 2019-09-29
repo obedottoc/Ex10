@@ -14,7 +14,7 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 	TextField display;
 	Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9,b_00;
 	Button b_add,b_sub,b_equals,b_div,b_mod,b_clr,b_multi,b_back,b_point;
-	Button b_sin;
+	Button b_sin,b_cos,b_tan;
 	Panel p;
 	String nums;
 	Double op1,op2;
@@ -25,6 +25,8 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 	static final int OP_MOD=5;
 	static final int OP_MULTI=4;
 	static final int OP_sin=5;
+	static final int OP_cos=6;
+	static final int OP_tan=7;
 	public MyCalculator()
 	{
 	this.addWindowListener(this);	
@@ -130,7 +132,13 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 	b_sin.addActionListener(this);
 	p.add(b_sin);
 	
+	b_cos=new Button("cos");
+	b_cos.addActionListener(this);
+	p.add(b_cos);
 	
+	b_tan=new Button("tan");
+	b_tan.addActionListener(this);
+	p.add(b_tan);
 	}
 
 	public static void main(String[] args) 
@@ -302,6 +310,18 @@ public class MyCalculator extends Frame implements WindowListener ,ActionListene
 			{
 				op1=Double.parseDouble(nums);
 				nums=""+Math.sin(op1*180/Math.PI);
+				display.setText(nums);
+			}
+			else if(e.getSource()==b_cos) 
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.cos(op1*180/Math.PI);
+				display.setText(nums);
+			}
+			else if(e.getSource()==b_tan) 
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.tan(op1*180/Math.PI);
 				display.setText(nums);
 			}
 			else if(e.getSource()==b_clr)
