@@ -1,4 +1,8 @@
-
+/* 
+ * SCIENTIFIC CALCULATOR
+ * DEVELOPED BY 
+ * SURIYA KUMAR
+ * sksuri01@gmail.com*/
 package calce;
 
 import java.awt.*;
