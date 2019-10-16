@@ -275,7 +275,7 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 				   op2=Double.parseDouble(nums);
 				   nums=""+(op1/op2);
 				   display.setText(nums);
-				   break;
+				    break;
 				   
 				   
 				   
