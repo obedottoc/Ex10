@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class MyCalculator extends Frame implements WindowListener,ActionListener {
+ public class MyCalculator extends Frame implements WindowListener,ActionListener {
 	TextField display;
 	Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9;
 	Button b_add,b_sub,b_mul,b_div,b_eq,b_sin,b_cos,b_tan,b_c;
