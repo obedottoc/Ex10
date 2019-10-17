@@ -1,10 +1,6 @@
-/*
- * developed by R.Nehareddy
- * EEE-B
- * 212217105049
- * 
- * 
- */
+/***created by p.sumanth,eee-b,212217105047
+*
+*/
 package calc;
 
 import java.awt.*;
@@ -13,40 +9,33 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-
 public class MyCalculator extends Frame implements WindowListener,ActionListener {
 	TextField display;
 	Button b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9;
-	Button b_add,b_sub,b_eq,b_div,b_mul;
-	Button b_sin,b_cos,b_tan;
+	Button b_add,b_sub,b_mul,b_div,b_eq,b_sin,b_cos,b_tan,b_c;
 	Panel p;
 	String nums;
 	Double op1,op2;
-	int op;
+	int operator;
 	static final int OP_ADD=1;
-	static int 	OP_SUB=1;
-	
-	
-	
+	static final int OP_SUB=2;
+	static final int OP_MUL=3;
+	static final int OP_DIV=4;
 	public MyCalculator()
 	{
-		
-		
-		
-		
 		this.addWindowListener(this);
-		this.setLayout(new GridLayout(2,1));
+		this.setLayout(new GridLayout(2,2));
 		
 		nums="0";
-		
 		
 		display=new TextField("0");
 		display.setEditable(false);
 		this.add(display);
 		
 		p=new Panel();
-		p.setLayout(new GridLayout(5,5));
+		p.setLayout(new GridLayout(3,2));
 		this.add(p);
+		
 		
 		b_0=new Button("0");
 		b_0.addActionListener(this);
@@ -60,8 +49,8 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		b_2.addActionListener(this);
 		p.add(b_2);
 		
-        b_3=new Button("3");
-        b_3.addActionListener(this);
+		b_3=new Button("3");
+		b_3.addActionListener(this);
 		p.add(b_3);
 		
 		b_4=new Button("4");
@@ -88,6 +77,7 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		b_9.addActionListener(this);
 		p.add(b_9);
 		
+		
 		b_add=new Button("+");
 		b_add.addActionListener(this);
 		p.add(b_add);
@@ -100,46 +90,41 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 		b_eq.addActionListener(this);
 		p.add(b_eq);
 		
-
 		b_div=new Button("/");
 		b_div.addActionListener(this);
 		p.add(b_div);
-
-
+		
 		b_mul=new Button("*");
 		b_mul.addActionListener(this);
 		p.add(b_mul);
 		
-		
-		
-		
-		b_sin=new Button("Sin");
+		b_sin=new Button("sin");
 		b_sin.addActionListener(this);
 		p.add(b_sin);
 		
-		b_cos=new Button("Cos");
+		b_cos=new Button("cos");
 		b_cos.addActionListener(this);
 		p.add(b_cos);
 		
-		b_tan=new Button("Tan");
+		b_tan=new Button("tan");
 		b_tan.addActionListener(this);
 		p.add(b_tan);
-
-
-
-
-
-
+		
+		b_c=new Button("clear");
+		b_c.addActionListener(this);
+		p.add(b_c);
+		
 	}
-
+	
 	public static void main(String[] args) {
 		MyCalculator mc;
 		
 		mc=new MyCalculator();
 		mc.setTitle("Calculator");
-		mc.setSize(500,500);
-		
+		mc.setSize(400,300);
 		mc.setVisible(true);
+		
+
 	}
 
 	@Override
@@ -150,13 +135,14 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 
 	@Override
 	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
 		System.exit(0);
-		
 	}
 
 	@Override
 	public void windowClosed(WindowEvent e) {
-         		
+		// TODO Auto-generated method stub
+	
 	}
 
 	@Override
@@ -185,10 +171,12 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if(e.getSource()==b_0)
 		{
 			nums=nums+"0";
 			display.setText(nums);
+			
 		}else if(e.getSource()==b_1)
 		{
 			nums=nums+"1";
@@ -227,48 +215,94 @@ public class MyCalculator extends Frame implements WindowListener,ActionListener
 			display.setText(nums);
 		}else if(e.getSource()==b_add)
 		{
-		  op1=Double.parseDouble(nums);
-		  op=OP_ADD;
-		  nums="0";
-		  display.setText(nums);
-		  
-		}else if(e.getSource()==b_eq)
+			op1=Double.parseDouble(nums);
+			nums="0";
+			display.setText(nums);
+			operator=OP_ADD;
+			
+		}else if(e.getSource()==b_sub)
+		{
+			op1=Double.parseDouble(nums);
+			nums="0";
+			display.setText(nums);
+			operator=OP_SUB;
+			
+		}else if(e.getSource()==b_mul)
+		{
+			op1=Double.parseDouble(nums);
+			nums="0";
+			display.setText(nums);
+			operator=OP_MUL;
+			
+		}else if(e.getSource()==b_div)
+		{
+			op1=Double.parseDouble(nums);
+			nums="0";
+			display.setText(nums);
+			operator=OP_DIV;
+			
+		}
+	    else if(e.getSource()==b_eq)
 		{
 			op2=Double.parseDouble(nums);
 			
-			switch(op)
-			{ 
-			case OP_ADD:
+			switch(operator)
+			{
+			case 1:
 				nums=""+(op1+op2);
 				display.setText(nums);
 				break;
+			
+			case 2:
+				nums=""+(op1-op2);
+				display.setText(nums);
+				break;
+			
+			case 3:
+				nums=""+(op1*op2);
+				display.setText(nums);
+				break;
+			
+			case 4:
+				nums=""+(op1/op2);
+				display.setText(nums);
+				break;
+			
+				
 			}
 			
 			display.setText(nums);
+				
+	}else if(e.getSource()==b_sin)
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.sin(op1*Math.PI/180);
+				display.setText(nums);
+				
+			}else if(e.getSource()==b_cos)
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.cos(op1*Math.PI/180);
+				display.setText(nums);
+				
+			}
+			
+			else if(e.getSource()==b_tan)
+			{
+				op1=Double.parseDouble(nums);
+				nums=""+Math.cos(op1*Math.PI/180);
+				display.setText(nums);
+				
+			}
+			else if(e.getSource()==b_c)
+			{
+				nums=0+"";
+				display.setText(nums);
+			}
 
-			 
-		}else if (e.getSource()==b_sin)
-		{
-			op1=Double.parseDouble(nums);
-			
-			nums=""+Math.sin(op1*Math.PI/180);
-			display.setText(nums);
-		}else if (e.getSource()==b_cos)
-		{
-			op1=Double.parseDouble(nums);
-			
-			nums=""+Math.cos(op1*Math.PI/180);
-			display.setText(nums);
-		}else if (e.getSource()==b_tan)
-		{
-			op1=Double.parseDouble(nums);
-			
-			nums=""+Math.tan(op1*Math.PI/180);
-			display.setText(nums);
-		}
-			
+
 		
-		
+
 	}
 
 }
